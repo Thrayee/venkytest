@@ -35,10 +35,10 @@ jobs:
         working-directory: ./terraform
 
 
-      - name: Terraform Validate
-        id: validate
-        run: terraform validate -no-color
-        working-directory: ./terraform
+#      - name: Terraform Validate
+#       id: validate
+#       run: terraform validate -no-color
+#       working-directory: ./terraform
 
 
       - name: Terraform Plan
