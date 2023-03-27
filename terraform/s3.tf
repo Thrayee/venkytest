@@ -1,0 +1,8 @@
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "my-bucket"
+  acl = "private"
+}
+
+output "s3_bucket_name" {
+  value = aws_s3_bucket.my_bucket.id
+}
