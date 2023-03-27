@@ -1,3 +1,13 @@
+resource "aws_acm_certificate" "venkypoc" {
+  domain_name = "venkypoc.link"
+  subject_alternative_names = [
+    "www.venkypoc.com",
+    "devfe.venkypoc.com",
+  ]
+  validation_method = "DNS"
+}
+
+
 resource "aws_cloudfront_distribution" "my_distribution" {
   origin {
     domain_name = aws_s3_bucket.my_bucket.bucket_regional_domain_name
@@ -6,6 +16,12 @@ resource "aws_cloudfront_distribution" "my_distribution" {
       origin_access_identity = aws_cloudfront_origin_access_identity.my_identity.cloudfront_access_identity_path
     }
   }
+
+  viewer_certificate {
+    acm_certificate_arn = aws_acm_certificate.venkypoc.arn"
+    ssl_support_method  = "sni-only"
+  }
+}
 
   enabled             = true
   is_ipv6_enabled     = true
