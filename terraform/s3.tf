@@ -1,3 +1,13 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
+  }
+  required_version = ">= 1.2.0"
+}
+
 /* resource "aws_s3_bucket_acl" "my_bucket_acl" {
   bucket = aws_s3_bucket.my_bucket.id
   description = "Bucket ACL"
