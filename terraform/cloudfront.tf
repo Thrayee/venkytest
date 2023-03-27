@@ -1,3 +1,15 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
+  }
+
+  required_version = ">= 1.2.0"
+}
+
+
 resource "aws_acm_certificate" "venkypoc" {
   domain_name = "venkypoc.link"
   subject_alternative_names = [
