@@ -21,7 +21,7 @@ resource "aws_cloudfront_distribution" "my_distribution" {
     acm_certificate_arn = aws_acm_certificate.venkypoc.arn
     ssl_support_method  = "sni-only"
   }
-}
+
 
   enabled             = true
   is_ipv6_enabled     = true
